@@ -15,13 +15,27 @@ export const fetchCountries = async () => {
 };
 
 export const fetchStates = async (country) => {
-  const res = await fetch(`${BASE_URL}/country=${country}/states`);
-  return res.json();
+  try {
+    const res = await fetch(`${BASE_URL}/country=${country}/states`);
+    if (!res.ok) {
+      throw new Error('API failed');
+    }
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching state:', error);
+  }
 };
 
 export const fetchCities = async (country, state) => {
-  const res = await fetch(
-    `${BASE_URL}/country=${country}/state=${state}/cities`
-  );
-  return res.json();
+  try {
+    const res = await fetch(
+      `${BASE_URL}/country=${country}/state=${state}/cities`
+    );
+    if (!res.ok) {
+      throw new Error('API failed');
+    }
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching cities:', error);
+  }
 };
