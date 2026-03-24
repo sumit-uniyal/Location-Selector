@@ -11,6 +11,7 @@ export const fetchCountries = async () => {
     return response.json();
   } catch (error) {
     console.error('Error fetching countries:', error);
+    return [];
   }
 };
 
@@ -23,6 +24,7 @@ export const fetchStates = async (country) => {
     return res.json();
   } catch (error) {
     console.error('Error fetching state:', error);
+    return [];
   }
 };
 
@@ -37,5 +39,6 @@ export const fetchCities = async (country, state) => {
     return res.json();
   } catch (error) {
     console.error('Error fetching cities:', error);
+    return [];
   }
 };
